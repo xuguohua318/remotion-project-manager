@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": true,
+  "required": [
+    "cameraZoom", "cameraPanX", "cameraPanY", "cameraYaw", "cameraPitch", "cameraPush", "cameraRoll", "cameraEase",
+    "headLength", "headWidth", "headHeight", "headPosX", "headPosY", "mirror1Pos", "mirror2Pos", "refractionStrength",
+    "laserWidth", "nozzleLength", "nozzleRadius", "toolShape", "toolWidth", "toolHeight", "toolDepth", "toolPosX", "toolPosY",
+    "contactAlong", "contactHeight", "processingIntensity", "detectionIntensity", "contactGlow", "sparkSize", "sparkCount",
+    "wireOpacity", "gridOpacity", "backgroundOpacity", "labels", "showGrid", "showMirrorPaths", "showSparks", "cameraKeyframes"
+  ],
+  "properties": {
+    "cameraZoom": {"type":"number","title":"镜头缩放","minimum":0.18,"maximum":4.5,"multipleOf":0.01,"x-remotion-ui":{"control":"slider","group":"镜头运动（可打关键帧）","keyframable":true,"order":1}},
+    "cameraYaw": {"type":"number","title":"相机水平偏航角","minimum":-150,"maximum":150,"multipleOf":0.5,"x-remotion-ui":{"control":"slider","group":"镜头运动（可打关键帧）","unit":"°","keyframable":true,"order":2}},
+    "cameraPitch": {"type":"number","title":"相机俯仰角","minimum":-85,"maximum":85,"x-remotion-ui":{"control":"slider","group":"镜头运动（可打关键帧）","unit":"°","step":0.5,"keyframable":true,"order":3}},
+    "cameraRoll": {"type":"number","title":"镜头画面旋转","minimum":-180,"maximum":180,"multipleOf":0.5,"x-remotion-ui":{"control":"slider","group":"镜头运动（可打关键帧）","unit":"°","keyframable":true,"order":4}},
+    "cameraPanX": {"type":"number","title":"画面左右平移","minimum":-1600,"maximum":1600,"multipleOf":1,"x-remotion-ui":{"control":"slider","group":"镜头运动（可打关键帧）","keyframable":true,"order":5}},
+    "cameraPanY": {"type":"number","title":"画面上下平移","minimum":-1200,"maximum":1200,"multipleOf":1,"x-remotion-ui":{"control":"slider","group":"镜头运动（可打关键帧）","keyframable":true,"order":6}},
+    "cameraPush": {"type":"number","title":"自动推进幅度","minimum":-8,"maximum":8,"multipleOf":0.05,"x-remotion-ui":{"control":"slider","group":"镜头运动（可打关键帧）","keyframable":true,"order":7}},
+    "cameraEase": {"type":"string","title":"关键帧插值","enum":["smooth","linear","hold"],"x-remotion-ui":{"control":"select","group":"镜头运动（可打关键帧）","order":8}},
+
+    "headLength": {"type":"integer","title":"主光学腔长度","minimum":220,"maximum":490,"multipleOf":1,"x-remotion-ui":{"control":"slider","group":"光学头 3D 外形","order":1}},
+    "headWidth": {"type":"integer","title":"主光学腔宽度","minimum":65,"maximum":220,"multipleOf":1,"x-remotion-ui":{"control":"slider","group":"光学头 3D 外形","order":2}},
+    "headHeight": {"type":"integer","title":"主光学腔厚度","minimum":45,"maximum":180,"multipleOf":1,"x-remotion-ui":{"control":"slider","group":"光学头 3D 外形","order":3}},
+    "headPosX": {"type":"integer","title":"光学结构沿轴位置","minimum":-95,"maximum":95,"multipleOf":1,"x-remotion-ui":{"control":"slider","group":"光学头 3D 外形","order":4}},
+    "headPosY": {"type":"integer","title":"光学结构侧向偏移","minimum":-80,"maximum":80,"multipleOf":1,"x-remotion-ui":{"control":"slider","group":"光学头 3D 外形","order":5}},
+    "nozzleLength": {"type":"integer","title":"加工头长圆柱长度","minimum":130,"maximum":380,"multipleOf":1,"x-remotion-ui":{"control":"slider","group":"光学头 3D 外形","order":6}},
+    "nozzleRadius": {"type":"integer","title":"加工头圆柱半径","minimum":8,"maximum":44,"multipleOf":1,"x-remotion-ui":{"control":"slider","group":"光学头 3D 外形","order":7}},
+
+    "mirror1Pos": {"type":"integer","title":"第一片合束镜位置","minimum":400,"maximum":510,"multipleOf":1,"x-remotion-ui":{"control":"slider","group":"内部镜片与折射","order":1}},
+    "mirror2Pos": {"type":"integer","title":"第二片镜片位置","minimum":505,"maximum":590,"multipleOf":1,"x-remotion-ui":{"control":"slider","group":"内部镜片与折射","order":2}},
+    "refractionStrength": {"type":"number","title":"内部光路折转幅度","minimum":0,"maximum":2.5,"multipleOf":0.05,"x-remotion-ui":{"control":"slider","group":"内部镜片与折射","order":3}},
+
+    "processingIntensity": {"type":"number","title":"1050nm 加工光强度","minimum":0,"maximum":2.5,"multipleOf":0.05,"x-remotion-ui":{"control":"slider","group":"加工光 / 检测光","order":1}},
+    "detectionIntensity": {"type":"number","title":"635nm 检测光强度","minimum":0,"maximum":2.5,"multipleOf":0.05,"x-remotion-ui":{"control":"slider","group":"加工光 / 检测光","order":2}},
+    "laserWidth": {"type":"number","title":"光束粗细","minimum":0.4,"maximum":2.8,"multipleOf":0.05,"x-remotion-ui":{"control":"slider","group":"加工光 / 检测光","order":3}},
+
+    "contactAlong": {"type":"integer","title":"接触沿光轴位置","minimum":960,"maximum":1260,"multipleOf":1,"x-remotion-ui":{"control":"slider","group":"激光侧面接触","order":1}},
+    "contactHeight": {"type":"number","title":"侧面接触高度","minimum":0.07,"maximum":0.85,"multipleOf":0.01,"x-remotion-ui":{"control":"slider","group":"激光侧面接触","order":2}},
+    "contactGlow": {"type":"number","title":"接触点光晕强度","minimum":0,"maximum":2.5,"multipleOf":0.05,"x-remotion-ui":{"control":"slider","group":"激光侧面接触","order":3}},
+    "sparkSize": {"type":"number","title":"接触火花尺寸","minimum":0,"maximum":2.5,"multipleOf":0.05,"x-remotion-ui":{"control":"slider","group":"激光侧面接触","order":4}},
+    "sparkCount": {"type":"integer","title":"火花数量","minimum":0,"maximum":28,"multipleOf":1,"x-remotion-ui":{"control":"slider","group":"激光侧面接触","order":5}},
+
+    "toolShape": {"type":"string","title":"工件形状","enum":["cylinder","block","cone","flange"],"x-remotion-ui":{"control":"select","group":"工件形状与大小","order":1}},
+    "toolWidth": {"type":"integer","title":"工件宽度","minimum":60,"maximum":250,"multipleOf":1,"x-remotion-ui":{"control":"slider","group":"工件形状与大小","order":2}},
+    "toolHeight": {"type":"integer","title":"工件高度","minimum":80,"maximum":290,"multipleOf":1,"x-remotion-ui":{"control":"slider","group":"工件形状与大小","order":3}},
+    "toolDepth": {"type":"number","title":"工件深度比例","minimum":0.35,"maximum":2,"multipleOf":0.05,"x-remotion-ui":{"control":"slider","group":"工件形状与大小","order":4}},
+    "toolPosX": {"type":"integer","title":"工件左右位置","minimum":-120,"maximum":120,"multipleOf":1,"x-remotion-ui":{"control":"slider","group":"工件形状与大小","order":5}},
+    "toolPosY": {"type":"integer","title":"工件上下位置","minimum":-120,"maximum":120,"multipleOf":1,"x-remotion-ui":{"control":"slider","group":"工件形状与大小","order":6}},
+
+    "wireOpacity": {"type":"number","title":"线框强度","minimum":0,"maximum":1,"multipleOf":0.05,"x-remotion-ui":{"control":"slider","group":"背景与线框","order":1}},
+    "gridOpacity": {"type":"number","title":"背景网格强度","minimum":0,"maximum":1.5,"x-remotion-ui":{"control":"slider","group":"背景与线框","step":0.05,"order":2}},
+    "backgroundOpacity": {"type":"number","title":"背景图透明度","minimum":0,"maximum":1,"multipleOf":0.05,"x-remotion-ui":{"control":"slider","group":"背景与线框","order":3}},
+    "labels": {"type":"boolean","title":"必要文字标注","x-remotion-ui":{"control":"checkbox","group":"显示选项","order":1}},
+    "showGrid": {"type":"boolean","title":"透视网格","x-remotion-ui":{"control":"checkbox","group":"显示选项","order":2}},
+    "showMirrorPaths": {"type":"boolean","title":"镜片折转指示","x-remotion-ui":{"control":"checkbox","group":"显示选项","order":3}},
+    "showSparks": {"type":"boolean","title":"接触火花","x-remotion-ui":{"control":"checkbox","group":"显示选项","order":4}},
+    "cameraKeyframes": {"type":"object","title":"镜头关键帧"}
+  }
+}

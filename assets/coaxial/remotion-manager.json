@@ -1,0 +1,24 @@
+{
+  "version": 1,
+  "displayName": "CoaxialOptics",
+  "entry": "src/index.ts",
+  "packageManager": "npm",
+  "scripts": {
+    "studio": "studio",
+    "render": "render",
+    "check": "check"
+  },
+  "settings": {
+    "file": "default_settings.json",
+    "schema": "remotion-manager.schema.json",
+    "compositionId": "CoaxialOptics",
+    "timeline": {
+      "fps": 30,
+      "durationInFrames": 300
+    },
+    "keyframes": {
+      "containerPath": "cameraKeyframes",
+      "easingPath": "cameraEase"
+    }
+  }
+}

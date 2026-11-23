@@ -1,0 +1,11 @@
+node_modules/
+.npm-cache/
+.build-tools/
+.build-appdata/
+.electron-cache/
+.vite/
+out/
+coverage/
+*.log
+.DS_Store
+Thumbs.db
